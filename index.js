@@ -8,8 +8,19 @@ const computer = {
 
 const randomChoice = () => Math.floor(Math.random() * 5);
 
-const round0 = 3;
+let round0 = 3;
 
-for (let i = 0; i < round0; i++) {
-	computer.computerChoice.push(randomChoice());
-}
+const computerArray = () => {
+	let c = [];
+	for (let i = 0; i < round0; i++) {
+		c.push(randomChoice());
+	}
+	return c;
+};
+
+const advanceRound = () => round0++;
+
+advanceRound();
+advanceRound();
+
+console.log(computerArray());
