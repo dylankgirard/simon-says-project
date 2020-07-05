@@ -1,6 +1,6 @@
 article {
-    width: 80%;
-    height: 300px;
+	width: 80%;
+	height: 300px;
 	max-width: 400px;
 	margin: 0 auto;
 	text-align: center;
@@ -8,8 +8,8 @@ article {
 }
 
 h2 {
-    text-align: center;
-    margin-top: 5px;
+	text-align: center;
+	margin-top: 0px;
 }
 
 .game-grid {
@@ -18,10 +18,11 @@ h2 {
 	justify-content: center;
 	grid-template-columns: 20% 20% 20%;
 	grid-template-rows: 20% 20% 20%;
-	grid-gap: 10px;
+	grid-gap: 5px;
 }
 
 #r-button {
+	background-color: rgb(235, 88, 88);
 	grid-column-start: 2;
 	grid-column-end: 3;
 	grid-row-start: 2;
@@ -29,18 +30,21 @@ h2 {
 }
 
 #g-button {
+	background-color: green;
 	grid-column-start: 3;
 	grid-column-end: 3;
 }
 
 #b-button {
+	background-color: blue;
 	grid-column-start: 1;
-    grid-column-end: 2;
-    grid-row-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 1;
 	grid-row-end: 2;
 }
 
 #y-button {
+	background-color: yellow;
 	grid-column-start: 1;
 	grid-column-end: 2;
 	grid-row-start: 3;
@@ -48,6 +52,7 @@ h2 {
 }
 
 #c-button {
+	background-color: cyan;
 	grid-column-start: 3;
 	grid-column-end: 3;
 	grid-row-start: 3;
