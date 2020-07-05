@@ -1,9 +1,15 @@
 article {
-	width: 80%;
+    width: 80%;
+    height: 300px;
 	max-width: 400px;
 	margin: 0 auto;
 	text-align: center;
 	align-content: center;
+}
+
+h2 {
+    text-align: center;
+    margin-top: 5px;
 }
 
 .game-grid {
@@ -13,4 +19,37 @@ article {
 	grid-template-columns: 20% 20% 20%;
 	grid-template-rows: 20% 20% 20%;
 	grid-gap: 10px;
+}
+
+#r-button {
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 2;
+	grid-row-end: 3;
+}
+
+#g-button {
+	grid-column-start: 3;
+	grid-column-end: 3;
+}
+
+#b-button {
+	grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+	grid-row-end: 2;
+}
+
+#y-button {
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 3;
+	grid-row-end: 3;
+}
+
+#c-button {
+	grid-column-start: 3;
+	grid-column-end: 3;
+	grid-row-start: 3;
+	grid-row-end: 3;
 }
