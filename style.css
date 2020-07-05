@@ -1,0 +1,16 @@
+article {
+	width: 80%;
+	max-width: 400px;
+	margin: 0 auto;
+	text-align: center;
+	align-content: center;
+}
+
+.game-grid {
+	height: 300px;
+	display: grid;
+	justify-content: center;
+	grid-template-columns: 20% 20% 20%;
+	grid-template-rows: 20% 20% 20%;
+	grid-gap: 10px;
+}
