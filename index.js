@@ -21,7 +21,5 @@ const advanceRound = () => round++;
 
 // TESTING
 advanceRound();
-advanceRound();
-advanceRound();
 
 console.log(computerArray());
