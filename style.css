@@ -25,6 +25,10 @@ h2 {
 	grid-gap: 5px;
 }
 
+.button {
+	cursor: pointer;
+}
+
 #r-button {
 	background-color: rgb(235, 88, 88);
 	grid-column-start: 2;
