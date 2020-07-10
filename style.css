@@ -40,6 +40,11 @@ h2 {
 	border: none;
 }
 
+.main-button:hover {
+	border: 5px solid white;
+	transition: 0.2s;
+}
+
 #r-button {
 	background-color: rgb(235, 88, 88);
 	grid-column-start: 2;
@@ -71,7 +76,7 @@ h2 {
 }
 
 #c-button {
-	background-color: rgb(26, 216, 230);
+	background-color: rgb(23, 197, 209);
 	grid-column-start: 3;
 	grid-column-end: 3;
 	grid-row-start: 3;
@@ -93,6 +98,11 @@ h2 {
 	border: none;
 }
 
+.restart-button:hover {
+	border: 5px solid white;
+	transition: 0.2s;
+}
+
 .play-button {
 	display: inline-block;
 	background-color: #ee6c4d;
@@ -106,4 +116,9 @@ h2 {
 	cursor: pointer;
 	outline: none;
 	border: none;
+}
+
+.play-button:hover {
+	border: 5px solid white;
+	transition: 0.2s;
 }
