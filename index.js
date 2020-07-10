@@ -3,16 +3,26 @@
 let playerChoice = [];
 let compChoice = [];
 
-const playerChoiceToString = () => playerChoice.toString();
-const compChoiceToString = () => compChoice.toString();
+// const playerChoiceToString = () => playerChoice.toString();
+// const compChoiceToString = () => compChoice.toString();
 
 // A randomizer for the computer to choose a value from 0 - 4
 
-const randomChoice = () => Math.floor(Math.random() * 5);
+const randomChoice = () => {
+	const randomNumber = Math.floor(Math.random() * 5);
+	return colorMap[randomNumber];
+};
+const colorMap = {
+	0: 'R',
+	1: 'G',
+	2: 'B',
+	3: 'Y',
+	4: 'C',
+};
 
 // Round0 has a value of three since the computer's intital number of choices will be 3. This value will increase by 1 each round.
 
-let round = 3;
+let round = 1;
 
 // A function to push generated values to the compChoice array by round number of times.
 
@@ -26,6 +36,7 @@ const computerChoiceGenerator = () => {
 // A function to advance the round by 1
 
 const advanceRound = () => {
+	playerChoice = [];
 	compChoice = [];
 	round++;
 };
@@ -33,19 +44,40 @@ const advanceRound = () => {
 // A function that will compare computer-choices to human-choices that equates to TRUE if they are equal and FALSE if they are not.
 
 const compareChoiceArrays = () => {
-	if (playerChoiceToString() === compChoiceToString()) {
-		return true;
-	} else {
+	if (playerChoice.length !== compChoice.length) {
 		return false;
 	}
+	for (let i = 0; i < playerChoice.length; i++) {
+		if (playerChoice[i] !== compChoice[i]) {
+			return false;
+		}
+	}
+	return true;
 };
+
+// Functionality for generating playerChoice values.
+
+const gridButtons = document.querySelector('.game-grid');
+gridButtons.addEventListener('click', pushValueToPlayerArray);
+function pushValueToPlayerArray(event) {
+	if (event.target.className === 'main-button') {
+		playerChoice.push(event.target.dataset.button);
+	}
+	console.log(playerChoice);
+}
 
 // TESTING
 
+// Simon Game Steps
 
-// Arrays that are converted to strings can be compared with strict equality
-// let array1 = [1, 2, 3]
-// let array2 = [1, 2, 3] <-- These two values equate to FALSE when compared
+// 1. The player arrives at the game.
 
-// let arrayToString1 = array1.toString()
-// let arrayToString2 = array2.toString() <-- These two values equate to TRUE when compared
+// 2. The player pushes the start button.
+
+// 3. The computer generates values that are pushed into the compChoice array.
+
+// 4. The compChoice array sequence is displayed to the player (buttons light up). Then the computer waits for the player input.
+
+// 5. The player attempts to match the sequence that was displayed. If they match the length and colors correctly, they advance to the next round. If they do not, GAME OVER and they will have to restart.
+
+// 6. If the player matched the sequence, the computer generates a new set of values based on the round numbers, and steps 3 - 5 are repeated until the player loses or restarts manually.
