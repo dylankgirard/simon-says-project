@@ -3,9 +3,6 @@
 let playerChoice = [];
 let compChoice = [];
 
-// const playerChoiceToString = () => playerChoice.toString();
-// const compChoiceToString = () => compChoice.toString();
-
 // A randomizer for the computer to choose a value from 0 - 4
 
 const randomChoice = () => {
@@ -16,7 +13,7 @@ const colorMap = {
 	0: 'R',
 	1: 'G',
 	2: 'B',
-	3: 'Y',
+	3: 'O',
 	4: 'C',
 };
 
@@ -63,7 +60,6 @@ function pushValueToPlayerArray(event) {
 	if (event.target.className === 'main-button') {
 		playerChoice.push(event.target.dataset.button);
 	}
-	console.log(playerChoice);
 }
 
 // TESTING

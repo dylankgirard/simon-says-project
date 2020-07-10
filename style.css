@@ -1,10 +1,18 @@
 body {
+	background-color: black;
+	font-family: Arial, Helvetica, sans-serif;
 	text-align: center;
+	justify-content: center;
+	color: white;
 	margin: 0 auto;
 }
 
+h1 {
+	font-size: 50px;
+}
+
 article {
-	height: 350px;
+	height: 400px;
 	max-width: 400px;
 	margin: 0 auto;
 	text-align: center;
@@ -27,6 +35,9 @@ h2 {
 
 .main-button {
 	cursor: pointer;
+	outline: none;
+	border-radius: 10%;
+	border: none;
 }
 
 #r-button {
@@ -51,8 +62,8 @@ h2 {
 	grid-row-end: 2;
 }
 
-#y-button {
-	background-color: yellow;
+#o-button {
+	background-color: rgb(255, 145, 0);
 	grid-column-start: 1;
 	grid-column-end: 2;
 	grid-row-start: 3;
@@ -60,9 +71,39 @@ h2 {
 }
 
 #c-button {
-	background-color: cyan;
+	background-color: rgb(26, 216, 230);
 	grid-column-start: 3;
 	grid-column-end: 3;
 	grid-row-start: 3;
 	grid-row-end: 3;
+}
+
+.restart-button {
+	display: inline-block;
+	background-color: #98c1d9;
+	color: black;
+	margin: 0 auto;
+	height: 50px;
+	width: 50px;
+	vertical-align: middle;
+	border-radius: 10px;
+	font-family: Arial, Helvetica, sans-serif;
+	cursor: pointer;
+	outline: none;
+	border: none;
+}
+
+.play-button {
+	display: inline-block;
+	background-color: #ee6c4d;
+	color: black;
+	margin: 0 auto;
+	height: 50px;
+	width: 230px;
+	vertical-align: middle;
+	border-radius: 10px;
+	font-family: Arial, Helvetica, sans-serif;
+	cursor: pointer;
+	outline: none;
+	border: none;
 }
