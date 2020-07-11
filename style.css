@@ -42,7 +42,7 @@ h2 {
 
 .main-button:hover {
 	border: 4px solid white;
-	transition: 0.2s;
+	transition: 0.25s;
 }
 
 #r-button {
@@ -85,8 +85,8 @@ h2 {
 
 .restart-button {
 	display: inline-block;
-	background-color: #c77dff;
-	color: black;
+	background-color: #7442d1;
+	color: white;
 	margin: 0 auto;
 	height: 50px;
 	width: 50px;
@@ -100,13 +100,13 @@ h2 {
 
 .restart-button:hover {
 	border: 4px solid white;
-	transition: 0.3s;
+	transition: 0.25s;
 }
 
 .play-button {
 	display: inline-block;
-	background-color: #e0aaff;
-	color: black;
+	background-color: #7442d1;
+	color: white;
 	margin: 0 auto;
 	height: 50px;
 	width: 230px;
@@ -120,5 +120,5 @@ h2 {
 
 .play-button:hover {
 	border: 4px solid white;
-	transition: 0.2s;
+	transition: 0.25s;
 }
