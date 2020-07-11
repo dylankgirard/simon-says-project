@@ -2,7 +2,6 @@ body {
 	background-color: black;
 	font-family: Arial, Helvetica, sans-serif;
 	text-align: center;
-	justify-content: center;
 	color: white;
 	margin: 0 auto;
 }
@@ -33,16 +32,25 @@ h2 {
 	grid-gap: 5px;
 }
 
-.main-button {
+.button {
 	cursor: pointer;
+	color: white;
+	font-size: 15px;
 	outline: none;
-	border-radius: 10%;
 	border: none;
+	font-family: Arial, Helvetica, sans-serif;
+	border-radius: 10px;
 }
 
-.main-button:hover {
+.button:hover {
 	border: 4px solid white;
 	transition: 0.25s;
+}
+
+.button:active {
+	background-color: white;
+	color: black;
+	transition: 0.1s;
 }
 
 #r-button {
@@ -53,10 +61,20 @@ h2 {
 	grid-row-end: 3;
 }
 
+#r-button:active {
+	background-color: white;
+	transition: 0.1s;
+}
+
 #g-button {
 	background-color: green;
 	grid-column-start: 3;
 	grid-column-end: 3;
+}
+
+#g-button:active {
+	background-color: white;
+	transition: 0.1s;
 }
 
 #b-button {
@@ -67,12 +85,22 @@ h2 {
 	grid-row-end: 2;
 }
 
+#b-button:active {
+	background-color: white;
+	transition: 0.1s;
+}
+
 #o-button {
 	background-color: rgb(255, 145, 0);
 	grid-column-start: 1;
 	grid-column-end: 2;
 	grid-row-start: 3;
 	grid-row-end: 3;
+}
+
+#o-button:active {
+	background-color: white;
+	transition: 0.1s;
 }
 
 #c-button {
@@ -83,42 +111,25 @@ h2 {
 	grid-row-end: 3;
 }
 
+#c-button:active {
+	background-color: white;
+	transition: 0.1s;
+}
+
 .restart-button {
 	display: inline-block;
 	background-color: #7442d1;
-	color: white;
 	margin: 0 auto;
 	height: 50px;
 	width: 50px;
 	vertical-align: middle;
-	border-radius: 10px;
-	font-family: Arial, Helvetica, sans-serif;
-	cursor: pointer;
-	outline: none;
-	border: none;
-}
-
-.restart-button:hover {
-	border: 4px solid white;
-	transition: 0.25s;
 }
 
 .play-button {
 	display: inline-block;
 	background-color: #7442d1;
-	color: white;
 	margin: 0 auto;
 	height: 50px;
 	width: 230px;
 	vertical-align: middle;
-	border-radius: 10px;
-	font-family: Arial, Helvetica, sans-serif;
-	cursor: pointer;
-	outline: none;
-	border: none;
-}
-
-.play-button:hover {
-	border: 4px solid white;
-	transition: 0.25s;
 }
