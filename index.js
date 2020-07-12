@@ -17,7 +17,7 @@ const colorMap = {
 	4: 'C',
 };
 
-// Round0 has a value of three since the computer's intital number of choices will be 3. This value will increase by 1 each round.
+// A variable that keeps track of the current round.
 
 let round = 1;
 
@@ -57,10 +57,20 @@ const compareChoiceArrays = () => {
 const gridButtons = document.querySelector('.game-grid');
 gridButtons.addEventListener('click', pushValueToPlayerArray);
 function pushValueToPlayerArray(event) {
-	if (event.target.className === 'main-button') {
+	if (event.target.className === 'main-button button') {
 		playerChoice.push(event.target.dataset.button);
+		console.log(playerChoice);
 	}
 }
+
+// A function that allows the computer the 'click' a button.
+
+const computerPushesButton = () => {
+	document.querySelector('#r-button').click();
+	console.log('The R button was clicked');
+};
+
+// setInterval(computerPushesButton, 2000)
 
 // TESTING
 
