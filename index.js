@@ -19,7 +19,7 @@ const colorMap = {
 
 // A variable that keeps track of the current round.
 
-let round = 2;
+let round = 4;
 
 // A function to push generated values to the compChoice array by round number of times.
 
@@ -67,17 +67,18 @@ function pushValueToPlayerArray(event) {
 	}
 }
 
-// A function that allows the computer to 'click' a button.
+// A function that allows the computer to 'click' a button every 1.5 seconds. Found some useful suggestions for the timing element here: https://stackoverflow.com/questions/22154129/javascript-settimeout-loops , specifically from someone named Dupinder Singh.
 
 const computerPushesButton = () => {
 	for (let i = 0; i < compChoice.length; i++) {
-		document.querySelector(`[data-button='${compChoice[i]}']`).click();
-		console.log(`The ${compChoice[i]} button was clicked`);
-		// console.log(compChoice);
+		setTimeout(() => {
+			document.querySelector(`[data-button='${compChoice[i]}']`).click();
+			console.log(`The ${compChoice[i]} button was clicked`);
+		}, i * 1500);
 	}
 };
 
-// setInterval(computerPushesButton, 3000)
+// computerPushesButton();
 
 // TESTING
 
