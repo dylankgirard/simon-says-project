@@ -19,7 +19,7 @@ const colorMap = {
 
 // A variable that keeps track of the current round.
 
-let round = 1;
+let round = 2;
 
 // A function to push generated values to the compChoice array by round number of times.
 
@@ -29,6 +29,9 @@ const computerChoiceGenerator = () => {
 	}
 	return compChoice;
 };
+
+// computerChoiceGenerator();
+// console.log(compChoice);
 
 // A function to advance the round by 1
 
@@ -56,21 +59,25 @@ const compareChoiceArrays = () => {
 
 const gridButtons = document.querySelector('.game-grid');
 gridButtons.addEventListener('click', pushValueToPlayerArray);
+// Push player choices to playerChoice array
 function pushValueToPlayerArray(event) {
 	if (event.target.className === 'main-button button') {
 		playerChoice.push(event.target.dataset.button);
-		console.log(playerChoice);
+		// console.log(playerChoice);
 	}
 }
 
-// A function that allows the computer the 'click' a button.
+// A function that allows the computer to 'click' a button.
 
 const computerPushesButton = () => {
-	document.querySelector('#r-button').click();
-	console.log('The R button was clicked');
+	for (let i = 0; i < compChoice.length; i++) {
+		document.querySelector(`[data-button='${compChoice[i]}']`).click();
+		console.log(`The ${compChoice[i]} button was clicked`);
+		// console.log(compChoice);
+	}
 };
 
-// setInterval(computerPushesButton, 2000)
+// setInterval(computerPushesButton, 3000)
 
 // TESTING
 
