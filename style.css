@@ -43,7 +43,7 @@ h2 {
 	border-radius: 10px;
 }
 
-/* Referred to this trick for none-hovering user interfaces @  https://medium.com/@mezoistvan/finally-a-css-only-solution-to-hover-on-touchscreens-c498af39c31c */
+/* Found this trick for none-hovering user interfaces @  https://medium.com/@mezoistvan/finally-a-css-only-solution-to-hover-on-touchscreens-c498af39c31c */
 @media (hover: hover) and (pointer: fine) {
 	.button:hover {
 		border: 4px solid white;
@@ -53,6 +53,12 @@ h2 {
 
 .button:active {
 	background-color: white;
+	color: black;
+	transition: 0.3s;
+}
+
+.game-buttons-animation {
+	border: 4px solid white;
 	color: black;
 	transition: 0.3s;
 }

@@ -30,8 +30,8 @@ const computerChoiceGenerator = () => {
 	return compChoice;
 };
 
-// computerChoiceGenerator();
-// console.log(compChoice);
+computerChoiceGenerator();
+console.log(compChoice);
 
 // A function to advance the round by 1
 
@@ -56,16 +56,15 @@ const compareChoiceArrays = () => {
 };
 
 // Functionality for generating playerChoice values.
-
-const gridButtons = document.querySelector('.game-grid');
-gridButtons.addEventListener('click', pushValueToPlayerArray);
-// Push player choices to playerChoice array
-function pushValueToPlayerArray(event) {
+const pushValueToPlayerArray = (event) => {
 	if (event.target.className === 'main-button button') {
 		playerChoice.push(event.target.dataset.button);
 		// console.log(playerChoice);
 	}
 }
+
+const gridButtons = document.querySelector('.game-grid');
+gridButtons.addEventListener('click', pushValueToPlayerArray);
 
 // A function that allows the computer to 'click' a button every 1.5 seconds. Found some useful suggestions for the timing element here: https://stackoverflow.com/questions/22154129/javascript-settimeout-loops , specifically from someone named Dupinder Singh.
 
@@ -73,14 +72,22 @@ const compButtonPusher = () => {
 	setTimeout(() => {
 		for (let i = 0; i < compChoice.length; i++) {
 			setTimeout(() => {
-				document.querySelector(`[data-button='${compChoice[i]}']`).click();
+				const currentComputerChoice = document.querySelector(
+					`[data-button='${compChoice[i]}']`
+				);
+				currentComputerChoice.classList.toggle('game-buttons-animation');
+				setTimeout(() => {
+					currentComputerChoice.classList.toggle('game-buttons-animation');
+				}, 600);
 				console.log(`The ${compChoice[i]} button was clicked`);
+				currentComputerChoice.click();
 			}, i * 1000);
 		}
-	}, 1500);
+	}, 1200);
 };
 
-// compButtonPusher();
+const playButton = document.querySelector('.play-button');
+playButton.addEventListener('click', compButtonPusher)
 
 // TESTING
 
