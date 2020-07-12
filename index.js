@@ -69,16 +69,18 @@ function pushValueToPlayerArray(event) {
 
 // A function that allows the computer to 'click' a button every 1.5 seconds. Found some useful suggestions for the timing element here: https://stackoverflow.com/questions/22154129/javascript-settimeout-loops , specifically from someone named Dupinder Singh.
 
-const computerPushesButton = () => {
-	for (let i = 0; i < compChoice.length; i++) {
-		setTimeout(() => {
-			document.querySelector(`[data-button='${compChoice[i]}']`).click();
-			console.log(`The ${compChoice[i]} button was clicked`);
-		}, i * 1500);
-	}
+const compButtonPusher = () => {
+	setTimeout(() => {
+		for (let i = 0; i < compChoice.length; i++) {
+			setTimeout(() => {
+				document.querySelector(`[data-button='${compChoice[i]}']`).click();
+				console.log(`The ${compChoice[i]} button was clicked`);
+			}, i * 1000);
+		}
+	}, 1500);
 };
 
-// computerPushesButton();
+// compButtonPusher();
 
 // TESTING
 
