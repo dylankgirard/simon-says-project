@@ -53,8 +53,9 @@ const compareChoiceArrays = () => {
 		if (playerChoice[i] !== compChoice[i]) {
 			disableGridButtons();
 			playButton.innerText = '';
+			restartButton.style.color = 'red'
 			roundBanner.style.color = 'red';
-			roundBanner.innerText = 'FAILURE';
+			roundBanner.innerText = `${randomBannerSelector(failureBannerOutputs)}`;
 			return false;
 		}
 	}
@@ -62,7 +63,7 @@ const compareChoiceArrays = () => {
 	disableGridButtons();
 	playButton.disabled = false;
 	playButton.innerText = 'CONTINUE?';
-	roundBanner.innerText = 'GREAT JOB';
+	roundBanner.innerText = `${randomBannerSelector(successBannerOutputs)}`;
 	return true;
 };
 
@@ -71,8 +72,8 @@ const pushValueToPlayerArray = (event) => {
 	if (event.target.className === 'main-button button') {
 		playerChoice.push(event.target.dataset.button);
 		compareChoiceArrays();
-		console.log(playerChoice);
-		console.log(compareChoiceArrays());
+		// console.log(playerChoice);
+		// console.log(compareChoiceArrays());
 	}
 };
 
@@ -90,9 +91,9 @@ const compButtonPusher = () => {
 	playButton.disabled = true;
 	gridButtons.disabled = false;
 	round++;
-	console.log(round);
+	// console.log(round);
 	computerChoiceGenerator();
-	console.log(compChoice);
+	// console.log(compChoice);
 	roundBanner.innerText = `Round: ${round}`;
 	roundBanner.style.visibility = 'visible';
 	setTimeout(() => {
@@ -105,7 +106,7 @@ const compButtonPusher = () => {
 				setTimeout(() => {
 					currentComputerChoice.classList.toggle('game-buttons-animation');
 				}, 600);
-				console.log(`The ${compChoice[i]} button was clicked`);
+				// console.log(`The ${compChoice[i]} button was clicked`);
 				currentComputerChoice.click();
 				if (i === compChoice.length - 1) {
 					playButton.innerText = 'YOUR TURN!';
@@ -129,8 +130,8 @@ roundBanner.style.visibility = 'hidden';
 const restartTheGame = () => {
 	round = 0;
 	resetChoices();
+	restartButton.style.color = 'white';
 	playButton.disabled = false;
-	// gridButtons.disabled = true;
 	roundBanner.style.visibility = 'hidden';
 	roundBanner.style.color = 'white';
 	playButton.innerText = 'START THE GAME';
@@ -153,6 +154,39 @@ const enableGridButtons = () => {
 };
 
 disableGridButtons();
+
+// Success banner outputs
+
+const successBannerOutputs = {
+	0: 'CONGRATULATIONS!',
+	1: 'HOLY COW!',
+	2: 'UNREAL!',
+	3: 'ABSOLUTELY LIT!',
+	4: 'YOU ARE ON FIRE!',
+	5: 'AMAZING!',
+	6: 'WOW!',
+};
+
+// Failure banner outputs
+
+const failureBannerOutputs = {
+	0: 'FAILURE',
+	1: 'TRY PAYING ATTENTION',
+	2: 'YOU CALL THAT MEMORY?',
+	3: 'NO NO NO NO NO',
+	4: 'MAYBE SOME DAY',
+	5: 'NOPE, START OVER!',
+	6: 'SAD',
+};
+
+// Randomly secect different banners
+
+const randomBannerSelector = (object) => {
+	const randomNumber = Math.floor(Math.random() * 7);
+	randomNumber;
+	return object[randomNumber];
+};
+
 
 // TESTING
 
