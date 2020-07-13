@@ -5,7 +5,7 @@ let compChoice = [];
 
 // A variable that keeps track of the current round.
 
-let round = 1;
+let round = 0;
 
 // A randomizer for the computer to choose a value from 0 - 4
 
@@ -21,7 +21,7 @@ const colorMap = {
 	4: 'C',
 };
 
-// A function to push randomChoice values to the compChoice array by round number of times.
+// A function to push randomChoice values to the compChoice array by 'round' number of times.
 
 const computerChoiceGenerator = () => {
 	for (let i = 0; i < round + 2; i++) {
@@ -30,16 +30,18 @@ const computerChoiceGenerator = () => {
 	return compChoice;
 };
 
-computerChoiceGenerator();
+// computerChoiceGenerator();
 console.log(compChoice);
 
-// A function to advance the round by 1
+// A function to reset choices between rounds or on restart.
 
-const advanceRound = () => {
+const resetChoices = () => {
 	playerChoice = [];
 	compChoice = [];
-	round++;
 };
+
+// A banner that updates each round.
+const roundBanner = document.querySelector('.round-banner');
 
 // A function that will compare computer-choices to human-choices that equates to TRUE if they are equal and FALSE if they are not.
 
@@ -49,9 +51,13 @@ const compareChoiceArrays = () => {
 	}
 	for (let i = 0; i < playerChoice.length; i++) {
 		if (playerChoice[i] !== compChoice[i]) {
+			roundBanner.style.color = 'red';
+			roundBanner.innerText = 'FAILURE';
 			return false;
 		}
 	}
+	resetChoices();
+	roundBanner.innerText = 'GREAT JOB';
 	return true;
 };
 
@@ -59,7 +65,9 @@ const compareChoiceArrays = () => {
 const pushValueToPlayerArray = (event) => {
 	if (event.target.className === 'main-button button') {
 		playerChoice.push(event.target.dataset.button);
+		compareChoiceArrays();
 		console.log(playerChoice);
+		console.log(compareChoiceArrays());
 	}
 };
 
@@ -69,8 +77,12 @@ gridButtons.addEventListener('click', pushValueToPlayerArray);
 /* A function that allows the computer to 'click' a button every 1.5 seconds. Found some useful suggestions for the timing element here: https://stackoverflow.com/questions/22154129/javascript-settimeout-loops , specifically from someone named Dupinder Singh. 
 When the playButton is pushed, the footer banner is made visible. */
 
-
 const compButtonPusher = () => {
+	round++;
+	console.log(round);
+	computerChoiceGenerator();
+	console.log(compChoice);
+	roundBanner.innerText = `Round: ${round}`;
 	roundBanner.style.visibility = 'visible';
 	setTimeout(() => {
 		for (let i = 0; i < compChoice.length; i++) {
@@ -92,10 +104,7 @@ const compButtonPusher = () => {
 const playButton = document.querySelector('.play-button');
 playButton.addEventListener('click', compButtonPusher);
 
-// Targeting the footer for a dynamically updating round banner
-
-const roundBanner = document.querySelector('.round-banner')
-roundBanner.innerText = `Round: ${round}`
+roundBanner.innerText = `Round: ${round}`;
 roundBanner.style.visibility = 'hidden';
 
 // TESTING

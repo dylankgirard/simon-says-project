@@ -1,6 +1,6 @@
 body {
 	display: grid;
-	grid-template-rows: 20% 50% 10% 20%;
+	grid-template-rows: 19% 47% 13% 7%;
 	background-color: black;
 	font-family: Arial, Helvetica, sans-serif;
 	text-align: center;
@@ -34,8 +34,8 @@ h2 {
 }
 
 .round-banner {
-	color: #7442d1;
-	font-size: 40px;
+	color: white;
+	font-size: 45px;
 }
 
 .button {
