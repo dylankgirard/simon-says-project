@@ -53,7 +53,7 @@ const compareChoiceArrays = () => {
 		if (playerChoice[i] !== compChoice[i]) {
 			disableGridButtons();
 			playButton.innerText = '';
-			restartButton.style.color = 'red'
+			restartButton.style.color = 'red';
 			roundBanner.style.color = 'red';
 			roundBanner.innerText = `${randomBannerSelector(failureBannerOutputs)}`;
 			return false;
@@ -80,14 +80,11 @@ const pushValueToPlayerArray = (event) => {
 const gridButtons = document.querySelector('.game-grid');
 gridButtons.addEventListener('click', pushValueToPlayerArray);
 
-// const toDisableGridButtons = document.querySelector('.main-button')
-// toDisableGridButtons.disabled = 'true'
-
 /* A function that allows the computer to 'click' a button every 1.5 seconds. Found some useful suggestions for the timing element here: https://stackoverflow.com/questions/22154129/javascript-settimeout-loops , specifically from someone named Dupinder Singh. 
 When the playButton is pushed, the footer banner is made visible. */
 
 const compButtonPusher = () => {
-	playButton.innerText = 'Watch Carefully...';
+	playButton.innerText = 'Watch Carefully';
 	playButton.disabled = true;
 	gridButtons.disabled = false;
 	round++;
@@ -119,7 +116,7 @@ const compButtonPusher = () => {
 
 const playButton = document.querySelector('.play-button');
 playButton.addEventListener('click', compButtonPusher);
-playButton.innerText = 'START THE GAME';
+playButton.innerText = 'START';
 
 // Progress banner remains hidden until the game begins
 
@@ -134,7 +131,7 @@ const restartTheGame = () => {
 	playButton.disabled = false;
 	roundBanner.style.visibility = 'hidden';
 	roundBanner.style.color = 'white';
-	playButton.innerText = 'START THE GAME';
+	playButton.innerText = 'START';
 };
 const restartButton = document.querySelector('.restart-button');
 restartButton.addEventListener('click', restartTheGame);
@@ -162,7 +159,7 @@ const successBannerOutputs = {
 	1: 'HOLY COW!',
 	2: 'UNREAL!',
 	3: 'ABSOLUTELY LIT!',
-	4: 'YOU ARE ON FIRE!',
+	4: "YOU'RE ON FIRE!",
 	5: 'AMAZING!',
 	6: 'WOW!',
 };
@@ -186,7 +183,6 @@ const randomBannerSelector = (object) => {
 	randomNumber;
 	return object[randomNumber];
 };
-
 
 // TESTING
 
