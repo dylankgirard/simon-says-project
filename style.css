@@ -1,6 +1,6 @@
 body {
 	display: grid;
-	grid-template-rows: 19% 47% 13% 7%;
+	grid-template-rows: 19% 47% 13% 20%;
 	background-color: black;
 	font-family: 'Press Start 2P', 'Arial';
 	text-align: center;
@@ -39,6 +39,7 @@ h2 {
 
 .round-banner {
 	color: white;
+	margin-top: 10px;
 	font-size: 45px;
 }
 
@@ -156,3 +157,17 @@ h2 {
 	width: 230px;
 	vertical-align: middle;
 }
+
+@media only screen and (max-width: 498px) {
+	body {
+		grid-template-rows: 25% 41% 12% 30%;
+	}
+	h1 {
+		line-height: 60px;
+	}
+	.round-banner {
+		line-height: 60px;
+	}
+}
+
+

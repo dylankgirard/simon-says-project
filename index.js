@@ -120,16 +120,17 @@ playButton.innerText = 'START';
 
 // Progress banner remains hidden until the game begins
 
-roundBanner.innerText = `Round: ${round}`;
+roundBanner.innerText = `Round:${round}`;
 roundBanner.style.visibility = 'hidden';
 
 // Targeting the restart button, return to round 1
 const restartTheGame = () => {
+	roundBanner.style.visibility = 'hidden';
 	round = 0;
 	resetChoices();
 	restartButton.style.color = 'white';
 	playButton.disabled = false;
-	roundBanner.style.visibility = 'hidden';
+	roundBanner.innerText = `Round:${round}`;
 	roundBanner.style.color = 'white';
 	playButton.innerText = 'START';
 };
@@ -155,24 +156,24 @@ disableGridButtons();
 // Success banner outputs
 
 const successBannerOutputs = {
-	0: 'CONGRATULATIONS!',
-	1: 'HOLY COW!',
-	2: 'UNREAL!',
-	3: 'ABSOLUTELY LIT!',
-	4: "YOU'RE ON FIRE!",
-	5: 'AMAZING!',
-	6: 'WOW!',
+	0: 'CONGRATS',
+	1: 'HOLY COW',
+	2: 'UNREAL',
+	3: 'LIT',
+	4: 'FIRE',
+	5: 'AMAZING',
+	6: 'WOW',
 };
 
 // Failure banner outputs
 
 const failureBannerOutputs = {
 	0: 'FAILURE',
-	1: 'TRY PAYING ATTENTION',
-	2: 'YOU CALL THAT MEMORY?',
-	3: 'NO NO NO NO NO',
-	4: 'MAYBE SOME DAY',
-	5: 'NOPE, START OVER!',
+	1: 'NOPE',
+	2: 'WHAT?',
+	3: 'NO NO NO',
+	4: 'SOME DAY',
+	5: 'NAH DOG',
 	6: 'SAD',
 };
 
@@ -180,7 +181,6 @@ const failureBannerOutputs = {
 
 const randomBannerSelector = (object) => {
 	const randomNumber = Math.floor(Math.random() * 7);
-	randomNumber;
 	return object[randomNumber];
 };
 
