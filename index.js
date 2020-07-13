@@ -66,9 +66,12 @@ const pushValueToPlayerArray = (event) => {
 const gridButtons = document.querySelector('.game-grid');
 gridButtons.addEventListener('click', pushValueToPlayerArray);
 
-// A function that allows the computer to 'click' a button every 1.5 seconds. Found some useful suggestions for the timing element here: https://stackoverflow.com/questions/22154129/javascript-settimeout-loops , specifically from someone named Dupinder Singh.
+/* A function that allows the computer to 'click' a button every 1.5 seconds. Found some useful suggestions for the timing element here: https://stackoverflow.com/questions/22154129/javascript-settimeout-loops , specifically from someone named Dupinder Singh. 
+When the playButton is pushed, the footer banner is made visible. */
+
 
 const compButtonPusher = () => {
+	roundBanner.style.visibility = 'visible';
 	setTimeout(() => {
 		for (let i = 0; i < compChoice.length; i++) {
 			setTimeout(() => {
@@ -79,15 +82,21 @@ const compButtonPusher = () => {
 				setTimeout(() => {
 					currentComputerChoice.classList.toggle('game-buttons-animation');
 				}, 600);
-				// console.log(`The ${compChoice[i]} button was clicked`);
+				console.log(`The ${compChoice[i]} button was clicked`);
 				currentComputerChoice.click();
 			}, i * 1000);
 		}
-	}, 1200);
+	}, 1300);
 };
 
 const playButton = document.querySelector('.play-button');
 playButton.addEventListener('click', compButtonPusher);
+
+// Targeting the footer for a dynamically updating round banner
+
+const roundBanner = document.querySelector('.round-banner')
+roundBanner.innerText = `Round: ${round}`
+roundBanner.style.visibility = 'hidden';
 
 // TESTING
 
@@ -101,6 +110,6 @@ playButton.addEventListener('click', compButtonPusher);
 
 // 4. The compChoice array sequence is displayed to the player (buttons light up). Then the computer waits for the player input.
 
-// 5. The player attempts to match the sequence that was displayed. If they match the length and colors correctly, they advance to the next round. If they do not, GAME OVER and they will have to restart.
+// 5. The player attempts to match the sequence that was displayed. If they match the  colors correctly, they advance to the next round. If they do not, GAME OVER and they will have to restart.
 
 // 6. If the player matched the sequence, the computer generates a new set of values based on the round numbers, and steps 3 - 5 are repeated until the player loses or restarts manually.

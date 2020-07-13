@@ -33,6 +33,11 @@ h2 {
 	grid-gap: 5px;
 }
 
+.round-banner {
+	color: #7442d1;
+	font-size: 40px;
+}
+
 .button {
 	cursor: pointer;
 	color: white;
