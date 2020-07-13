@@ -1,4 +1,6 @@
 body {
+	display: grid;
+	grid-template-rows: 20% 50% 10% 20%;
 	background-color: black;
 	font-family: Arial, Helvetica, sans-serif;
 	text-align: center;
@@ -11,7 +13,6 @@ h1 {
 }
 
 article {
-	height: 400px;
 	max-width: 400px;
 	margin: 0 auto;
 	text-align: center;

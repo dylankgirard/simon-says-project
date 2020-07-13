@@ -3,6 +3,10 @@
 let playerChoice = [];
 let compChoice = [];
 
+// A variable that keeps track of the current round.
+
+let round = 1;
+
 // A randomizer for the computer to choose a value from 0 - 4
 
 const randomChoice = () => {
@@ -17,14 +21,10 @@ const colorMap = {
 	4: 'C',
 };
 
-// A variable that keeps track of the current round.
-
-let round = 4;
-
-// A function to push generated values to the compChoice array by round number of times.
+// A function to push randomChoice values to the compChoice array by round number of times.
 
 const computerChoiceGenerator = () => {
-	for (let i = 0; i < round; i++) {
+	for (let i = 0; i < round + 2; i++) {
 		compChoice.push(randomChoice());
 	}
 	return compChoice;
@@ -59,9 +59,9 @@ const compareChoiceArrays = () => {
 const pushValueToPlayerArray = (event) => {
 	if (event.target.className === 'main-button button') {
 		playerChoice.push(event.target.dataset.button);
-		// console.log(playerChoice);
+		console.log(playerChoice);
 	}
-}
+};
 
 const gridButtons = document.querySelector('.game-grid');
 gridButtons.addEventListener('click', pushValueToPlayerArray);
@@ -79,7 +79,7 @@ const compButtonPusher = () => {
 				setTimeout(() => {
 					currentComputerChoice.classList.toggle('game-buttons-animation');
 				}, 600);
-				console.log(`The ${compChoice[i]} button was clicked`);
+				// console.log(`The ${compChoice[i]} button was clicked`);
 				currentComputerChoice.click();
 			}, i * 1000);
 		}
@@ -87,7 +87,7 @@ const compButtonPusher = () => {
 };
 
 const playButton = document.querySelector('.play-button');
-playButton.addEventListener('click', compButtonPusher)
+playButton.addEventListener('click', compButtonPusher);
 
 // TESTING
 
