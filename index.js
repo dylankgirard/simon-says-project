@@ -31,7 +31,7 @@ const computerChoiceGenerator = () => {
 };
 
 // computerChoiceGenerator();
-console.log(compChoice);
+// console.log(compChoice);
 
 // A function to reset choices between rounds or on restart.
 
@@ -51,12 +51,17 @@ const compareChoiceArrays = () => {
 	}
 	for (let i = 0; i < playerChoice.length; i++) {
 		if (playerChoice[i] !== compChoice[i]) {
+			disableGridButtons();
+			playButton.innerText = '';
 			roundBanner.style.color = 'red';
 			roundBanner.innerText = 'FAILURE';
 			return false;
 		}
 	}
 	resetChoices();
+	disableGridButtons();
+	playButton.disabled = false;
+	playButton.innerText = 'CONTINUE?';
 	roundBanner.innerText = 'GREAT JOB';
 	return true;
 };
@@ -74,10 +79,16 @@ const pushValueToPlayerArray = (event) => {
 const gridButtons = document.querySelector('.game-grid');
 gridButtons.addEventListener('click', pushValueToPlayerArray);
 
+// const toDisableGridButtons = document.querySelector('.main-button')
+// toDisableGridButtons.disabled = 'true'
+
 /* A function that allows the computer to 'click' a button every 1.5 seconds. Found some useful suggestions for the timing element here: https://stackoverflow.com/questions/22154129/javascript-settimeout-loops , specifically from someone named Dupinder Singh. 
 When the playButton is pushed, the footer banner is made visible. */
 
 const compButtonPusher = () => {
+	playButton.innerText = 'Watch Carefully...';
+	playButton.disabled = true;
+	gridButtons.disabled = false;
 	round++;
 	console.log(round);
 	computerChoiceGenerator();
@@ -96,6 +107,10 @@ const compButtonPusher = () => {
 				}, 600);
 				console.log(`The ${compChoice[i]} button was clicked`);
 				currentComputerChoice.click();
+				if (i === compChoice.length - 1) {
+					playButton.innerText = 'YOUR TURN!';
+					enableGridButtons();
+				}
 			}, i * 1000);
 		}
 	}, 1300);
@@ -103,9 +118,41 @@ const compButtonPusher = () => {
 
 const playButton = document.querySelector('.play-button');
 playButton.addEventListener('click', compButtonPusher);
+playButton.innerText = 'START THE GAME';
+
+// Progress banner remains hidden until the game begins
 
 roundBanner.innerText = `Round: ${round}`;
 roundBanner.style.visibility = 'hidden';
+
+// Targeting the restart button, return to round 1
+const restartTheGame = () => {
+	round = 0;
+	resetChoices();
+	playButton.disabled = false;
+	// gridButtons.disabled = true;
+	roundBanner.style.visibility = 'hidden';
+	roundBanner.style.color = 'white';
+	playButton.innerText = 'START THE GAME';
+};
+const restartButton = document.querySelector('.restart-button');
+restartButton.addEventListener('click', restartTheGame);
+
+// Functions for enabling/disabling grid buttons
+
+const disableGridButtons = () => {
+	for (let i = 0; i < gridButtons.children.length; i++) {
+		gridButtons.children[i].disabled = true;
+	}
+};
+
+const enableGridButtons = () => {
+	for (let i = 0; i < gridButtons.children.length; i++) {
+		gridButtons.children[i].disabled = false;
+	}
+};
+
+disableGridButtons();
 
 // TESTING
 
