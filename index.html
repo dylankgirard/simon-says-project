@@ -5,7 +5,10 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Simon Says - DG</title>
 		<link rel="stylesheet" href="style.css" />
-		<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+		<link
+			href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+			rel="stylesheet"
+		/>
 	</head>
 	<body>
 		<h1>SIMON SAYS</h1>
@@ -33,7 +36,19 @@
 			<button class="play-button button"></button>
 		</article>
 		<footer class="round-banner"></footer>
-		<audio class="blue" src="tones/blue.mp3" controls></audio>
-		<script src="index.js"></script>
+		<audio
+			class="grid-sound"
+			src="soundFX/button-select2-1.wav"
+			controls
+		></audio>
+		<audio class="start-sound" src="soundFX/power-up.wav" controls></audio>
+		<audio
+			class="victory-sound"
+			src="soundFX/vicotry-sound.wav"
+			controls
+		></audio>
+		<audio class="failure-sound" src="soundFX/failure.wav" controls></audio>
+		<audio class="restart-sound" src="soundFX/coin.wav" controls></audio>
+		<script src="script.js"></script>
 	</body>
 </html>

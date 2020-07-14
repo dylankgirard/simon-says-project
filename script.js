@@ -1,13 +1,13 @@
-// The player and computer will input their choices here.
+// The player and computer will input their choices here
 
 let playerChoice = [];
 let compChoice = [];
 
-// A variable that keeps track of the current round.
+// A variable that keeps track of the current round
 
 let round = 0;
 
-// A randomizer for the computer to choose a value from 0 - 4, corresponding to the button colors.
+// A randomizer for the computer to choose a value from 0 - 4, corresponding to the button colors
 
 const randomChoice = () => {
 	const randomNumber = Math.floor(Math.random() * 5);
@@ -21,7 +21,7 @@ const colorMap = {
 	4: 'C',
 };
 
-// A function to push randomChoice values to the compChoice array by 'round' number of times.
+// A function to push randomChoice values to the compChoice array by 'round' number of times
 
 const computerChoiceGenerator = () => {
 	for (let i = 0; i < round + 2; i++) {
@@ -30,7 +30,7 @@ const computerChoiceGenerator = () => {
 	return compChoice;
 };
 
-// A function to reset choices between rounds or on restart.
+// A function to reset choices between rounds or on restart
 
 const resetChoices = () => {
 	playerChoice = [];
@@ -40,7 +40,7 @@ const resetChoices = () => {
 // A banner that updates each round.
 const roundBanner = document.querySelector('.round-banner');
 
-// A function that will compare computer-choices to human-choices that equates to TRUE if they are equal and FALSE if they are not.
+// A function that will compare computer-choices to human-choices that equates to TRUE if they are equal and FALSE if they are not
 
 const compareChoiceArrays = () => {
 	if (playerChoice.length !== compChoice.length) {
@@ -49,6 +49,7 @@ const compareChoiceArrays = () => {
 	for (let i = 0; i < playerChoice.length; i++) {
 		if (playerChoice[i] !== compChoice[i]) {
 			disableGridButtons();
+			failureSound.play();
 			playButton.innerText = '';
 			restartButton.style.color = 'red';
 			roundBanner.style.color = 'red';
@@ -58,15 +59,17 @@ const compareChoiceArrays = () => {
 	}
 	resetChoices();
 	disableGridButtons();
+	victorySound.play();
 	playButton.disabled = false;
 	playButton.innerText = 'CONTINUE?';
 	roundBanner.innerText = `${randomBannerSelector(successBannerOutputs)}`;
 	return true;
 };
 
-// Functionality for generating playerChoice values.
+// Functionality for generating playerChoice values
 const pushValueToPlayerArray = (event) => {
 	if (event.target.className === 'main-button button') {
+		gridSelectSound.play();
 		playerChoice.push(event.target.dataset.button);
 		compareChoiceArrays();
 	}
@@ -78,8 +81,9 @@ gridButtons.addEventListener('click', pushValueToPlayerArray);
 /* A function that allows the computer to 'click' a button every 1.5 seconds. Found some useful suggestions for the timing element here: https://stackoverflow.com/questions/22154129/javascript-settimeout-loops , specifically from someone named Dupinder Singh. 
 When the playButton is pushed, the footer banner is made visible. */
 
-const compButtonPusher = () => {
+const roundPlaysOut = () => {
 	playButton.innerText = 'Watch Carefully';
+	startSound.play();
 	playButton.disabled = true;
 	gridButtons.disabled = false;
 	round++;
@@ -89,6 +93,7 @@ const compButtonPusher = () => {
 	setTimeout(() => {
 		for (let i = 0; i < compChoice.length; i++) {
 			setTimeout(() => {
+				gridSelectSound.play();
 				const currentComputerChoice = document.querySelector(
 					`[data-button='${compChoice[i]}']`
 				);
@@ -107,7 +112,7 @@ const compButtonPusher = () => {
 };
 
 const playButton = document.querySelector('.play-button');
-playButton.addEventListener('click', compButtonPusher);
+playButton.addEventListener('click', roundPlaysOut);
 playButton.innerText = 'START';
 
 // Progress banner remains hidden until the game begins
@@ -119,6 +124,7 @@ roundBanner.style.visibility = 'hidden';
 const restartTheGame = () => {
 	roundBanner.style.visibility = 'hidden';
 	round = 0;
+	restartSound.play();
 	resetChoices();
 	restartButton.style.color = 'white';
 	playButton.disabled = false;
@@ -176,5 +182,24 @@ const randomBannerSelector = (object) => {
 	return object[randomNumber];
 };
 
-// const blue = document.querySelector('.blue');
-// blue.play();
+/////////// Button effect sounds ///////////
+
+// Start sound - Credit ProjectsU012 on freesound.org
+
+const startSound = document.querySelector('.start-sound');
+
+// Round vicory sound - Credit danlucaz on freesound.org
+
+const victorySound = document.querySelector('.victory-sound');
+
+// Failure sound - Credit EVRetro on freesound.org
+
+const failureSound = document.querySelector('.failure-sound');
+
+// Grid button select sound - Credit Fupicat on freesound.org
+
+const gridSelectSound = document.querySelector('.grid-sound');
+
+// Restart sound - Credit ProjectsU012 on freesound.org
+
+const restartSound = document.querySelector('.restart-sound');
