@@ -170,4 +170,9 @@ h2 {
 	}
 }
 
-
+audio {
+	opacity: 0;
+	position: absolute;
+	top: -1000;
+	z-index: -1;
+}

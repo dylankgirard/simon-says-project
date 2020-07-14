@@ -1,4 +1,4 @@
-// The player and computer will input their choices here
+// The player and computer will input their choices here.
 
 let playerChoice = [];
 let compChoice = [];
@@ -7,7 +7,7 @@ let compChoice = [];
 
 let round = 0;
 
-// A randomizer for the computer to choose a value from 0 - 4
+// A randomizer for the computer to choose a value from 0 - 4, corresponding to the button colors.
 
 const randomChoice = () => {
 	const randomNumber = Math.floor(Math.random() * 5);
@@ -29,9 +29,6 @@ const computerChoiceGenerator = () => {
 	}
 	return compChoice;
 };
-
-// computerChoiceGenerator();
-// console.log(compChoice);
 
 // A function to reset choices between rounds or on restart.
 
@@ -72,8 +69,6 @@ const pushValueToPlayerArray = (event) => {
 	if (event.target.className === 'main-button button') {
 		playerChoice.push(event.target.dataset.button);
 		compareChoiceArrays();
-		// console.log(playerChoice);
-		// console.log(compareChoiceArrays());
 	}
 };
 
@@ -88,9 +83,7 @@ const compButtonPusher = () => {
 	playButton.disabled = true;
 	gridButtons.disabled = false;
 	round++;
-	// console.log(round);
 	computerChoiceGenerator();
-	// console.log(compChoice);
 	roundBanner.innerText = `Round: ${round}`;
 	roundBanner.style.visibility = 'visible';
 	setTimeout(() => {
@@ -103,7 +96,6 @@ const compButtonPusher = () => {
 				setTimeout(() => {
 					currentComputerChoice.classList.toggle('game-buttons-animation');
 				}, 600);
-				// console.log(`The ${compChoice[i]} button was clicked`);
 				currentComputerChoice.click();
 				if (i === compChoice.length - 1) {
 					playButton.innerText = 'YOUR TURN!';
@@ -169,7 +161,7 @@ const successBannerOutputs = {
 
 const failureBannerOutputs = {
 	0: 'FAILURE',
-	1: 'NOPE',
+	1: 'HUH?',
 	2: 'WHAT?',
 	3: 'NO NO NO',
 	4: 'SOME DAY',
@@ -177,25 +169,12 @@ const failureBannerOutputs = {
 	6: 'SAD',
 };
 
-// Randomly secect different banners
+// Randomly select different banners
 
 const randomBannerSelector = (object) => {
 	const randomNumber = Math.floor(Math.random() * 7);
 	return object[randomNumber];
 };
 
-// TESTING
-
-// Simon Game Steps
-
-// 1. The player arrives at the game.
-
-// 2. The player pushes the start button.
-
-// 3. The computer generates values that are pushed into the compChoice array.
-
-// 4. The compChoice array sequence is displayed to the player (buttons light up). Then the computer waits for the player input.
-
-// 5. The player attempts to match the sequence that was displayed. If they match the  colors correctly, they advance to the next round. If they do not, GAME OVER and they will have to restart.
-
-// 6. If the player matched the sequence, the computer generates a new set of values based on the round numbers, and steps 3 - 5 are repeated until the player loses or restarts manually.
+// const blue = document.querySelector('.blue');
+// blue.play();
