@@ -1,10 +1,18 @@
 body {
+	display: grid;
+	grid-template-rows: 19% 47% 13% 20%;
+	background-color: black;
+	font-family: 'Press Start 2P', 'Arial';
 	text-align: center;
+	color: white;
 	margin: 0 auto;
 }
 
+h1 {
+	font-size: 50px;
+}
+
 article {
-	height: 350px;
 	max-width: 400px;
 	margin: 0 auto;
 	text-align: center;
@@ -25,6 +33,47 @@ h2 {
 	grid-gap: 5px;
 }
 
+/* .main-button {
+	font-size: 35px;
+} */
+
+.round-banner {
+	color: white;
+	margin-top: 10px;
+	font-size: 45px;
+}
+
+.button {
+	cursor: pointer;
+	color: white;
+	font-size: 20px;
+	font-weight: bold;
+	outline: none;
+	border: none;
+	font-family: 'Press Start 2P', 'Arial';
+	border-radius: 10px;
+}
+
+/* Found this trick for none-hovering user interfaces @  https://medium.com/@mezoistvan/finally-a-css-only-solution-to-hover-on-touchscreens-c498af39c31c */
+@media (hover: hover) and (pointer: fine) {
+	.button:hover {
+		border: 4px solid white;
+		transition: 0.25s;
+	}
+}
+
+.button:active {
+	background-color: white;
+	color: black;
+	transition: 0.3s;
+}
+
+.game-buttons-animation {
+	border: 4px solid white;
+	color: black;
+	transition: 0.3s;
+}
+
 #r-button {
 	background-color: rgb(235, 88, 88);
 	grid-column-start: 2;
@@ -33,10 +82,20 @@ h2 {
 	grid-row-end: 3;
 }
 
+#r-button:active {
+	background-color: white;
+	transition: 0.1s;
+}
+
 #g-button {
 	background-color: green;
 	grid-column-start: 3;
 	grid-column-end: 3;
+}
+
+#g-button:active {
+	background-color: white;
+	transition: 0.1s;
 }
 
 #b-button {
@@ -47,18 +106,73 @@ h2 {
 	grid-row-end: 2;
 }
 
-#y-button {
-	background-color: yellow;
+#b-button:active {
+	background-color: white;
+	transition: 0.1s;
+}
+
+#o-button {
+	background-color: rgb(255, 145, 0);
 	grid-column-start: 1;
 	grid-column-end: 2;
 	grid-row-start: 3;
 	grid-row-end: 3;
 }
 
+#o-button:active {
+	background-color: white;
+	transition: 0.1s;
+}
+
 #c-button {
-	background-color: cyan;
+	background-color: rgb(23, 197, 209);
 	grid-column-start: 3;
 	grid-column-end: 3;
 	grid-row-start: 3;
 	grid-row-end: 3;
+}
+
+#c-button:active {
+	background-color: white;
+	transition: 0.1s;
+}
+
+.restart-button {
+	display: inline-block;
+	background-color: #7442d1;
+	margin: 0 auto;
+	padding-left: 10px;
+	padding-right: 10px;
+	height: 60px;
+	width: 60px;
+	vertical-align: middle;
+}
+
+.play-button {
+	display: inline-block;
+	background-color: #7442d1;
+	margin: 0 auto;
+	line-height: 26px;
+	height: 60px;
+	width: 230px;
+	vertical-align: middle;
+}
+
+@media only screen and (max-width: 498px) {
+	body {
+		grid-template-rows: 25% 41% 12% 30%;
+	}
+	h1 {
+		line-height: 60px;
+	}
+	.round-banner {
+		line-height: 60px;
+	}
+}
+
+audio {
+	opacity: 0;
+	position: absolute;
+	top: -1000;
+	z-index: -1;
 }

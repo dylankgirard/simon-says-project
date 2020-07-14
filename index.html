@@ -3,22 +3,37 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Memory Challenge</title>
+		<title>Simon Says - DG</title>
 		<link rel="stylesheet" href="style.css" />
+		<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 	</head>
 	<body>
+		<h1>SIMON SAYS</h1>
 		<article>
-			<h1>Memory<br />Challenge</h1>
 			<div class="game-grid">
-				<button class="button" id="r-button" data-button='0'>R</button>
-				<button class="button" id="g-button">G</button>
-				<button class="button" id="b-button">B</button>
-				<button class="button" id="y-button">Y</button>
-				<button class="button" id="c-button">C</button>
+				<button class="main-button button" id="r-button" data-button="R">
+					R
+				</button>
+				<button class="main-button button" id="g-button" data-button="G">
+					G
+				</button>
+				<button class="main-button button" id="b-button" data-button="B">
+					B
+				</button>
+				<button class="main-button button" id="o-button" data-button="O">
+					O
+				</button>
+				<button class="main-button button" id="c-button" data-button="C">
+					C
+				</button>
 			</div>
 		</article>
-		<h2>ROUND: 1</h2>
-		<footer>Copyright DG Enterprises</footer>
+		<article class="game-nav-area">
+			<button class="restart-button button">R</button>
+			<button class="play-button button"></button>
+		</article>
+		<footer class="round-banner"></footer>
+		<audio class="blue" src="tones/blue.mp3" controls></audio>
 		<script src="index.js"></script>
 	</body>
 </html>
