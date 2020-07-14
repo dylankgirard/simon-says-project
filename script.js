@@ -60,6 +60,7 @@ const compareChoiceArrays = () => {
 	resetChoices();
 	disableGridButtons();
 	victorySound.play();
+	roundBanner.style.color = 'gold';
 	playButton.disabled = false;
 	playButton.innerText = 'CONTINUE?';
 	roundBanner.innerText = `${randomBannerSelector(successBannerOutputs)}`;
@@ -89,6 +90,7 @@ const roundPlaysOut = () => {
 	round++;
 	computerChoiceGenerator();
 	roundBanner.innerText = `Round: ${round}`;
+	roundBanner.style.color = 'white';
 	roundBanner.style.visibility = 'visible';
 	setTimeout(() => {
 		for (let i = 0; i < compChoice.length; i++) {
@@ -121,6 +123,7 @@ roundBanner.innerText = `Round:${round}`;
 roundBanner.style.visibility = 'hidden';
 
 // Targeting the restart button, return to round 1
+
 const restartTheGame = () => {
 	roundBanner.style.visibility = 'hidden';
 	round = 0;
