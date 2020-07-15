@@ -9,13 +9,8 @@ body {
 	overflow: hidden;
 }
 
-h1 {
+.header-h1 {
 	font-size: 50px;
-}
-
-h2 {
-	text-align: center;
-	margin-top: 3px;
 }
 
 h4 {
@@ -187,7 +182,6 @@ article {
 		grid-template-rows: 22% 35% 9% 9% 5% 5%;
 		overflow: visible;
 	}
-	
 	h1 {
 		line-height: 60px;
 	}
@@ -217,10 +211,15 @@ article {
 	width: 100%;
 }
 
+.modal-h1 {
+	font-size: 50px;
+	line-height: 68px;
+}
+
 #close {
 	color: white;
 	display: block;
-	padding-top: 12px;
+	padding-top: 22px;
 }
 
 audio {
