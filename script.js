@@ -62,7 +62,7 @@ const compareChoiceArrays = () => {
 	victorySound.play();
 	roundBanner.style.color = 'gold';
 	playButton.disabled = false;
-	playButton.innerText = 'CONTINUE?';
+	playButton.innerText = 'CONTINUE';
 	roundBanner.innerText = `${randomBannerSelector(successBannerOutputs)}`;
 	return true;
 };
