@@ -151,6 +151,7 @@ const restartTheGame = () => {
 	resetChoices();
 	restartButton.style.color = 'white';
 	playButton.disabled = false;
+	disableGridButtons();
 	roundBanner.innerText = `Round:${round}`;
 	roundBanner.style.color = 'white';
 	playButton.innerText = 'START';
