@@ -181,7 +181,7 @@ article {
 	}
 }
 
-@media only screen and (max-width: 498px) {
+@media only screen and (max-width: 499px) {
 	body {
 		grid-template-rows: 22% 35% 9% 9% 5% 5%;
 	}
@@ -212,7 +212,6 @@ article {
 	padding-top: 10px;
 	height: 100%;
 	width: 100%;
-	border-radius: 2px;
 }
 
 #close {

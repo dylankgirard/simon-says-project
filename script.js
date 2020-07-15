@@ -25,7 +25,7 @@ const colorMap = {
 	4: 'C',
 };
 
-// A function to push randomChoice values to the compChoice array by 'round' number of times
+// A function to push randomChoice values to the compChoice array by 'round + 2' number of times
 
 const computerChoiceGenerator = () => {
 	for (let i = 0; i < round + 2; i++) {
@@ -85,8 +85,8 @@ const pushValueToPlayerArray = (event) => {
 const gridButtons = document.querySelector('.game-grid');
 gridButtons.addEventListener('click', pushValueToPlayerArray);
 
-/* A function that allows the computer to 'click' a button every 1.5 seconds. Found some useful suggestions for the timing element here: https://stackoverflow.com/questions/22154129/javascript-settimeout-loops , specifically from someone named Dupinder Singh. 
-When the playButton is pushed, the footer banner is made visible. */
+/* A function that allows the computer to 'click' a button every 1.5 seconds. Found some useful suggestions for the timing elements here: https://stackoverflow.com/questions/22154129/javascript-settimeout-loops, specifically from someone named Dupinder Singh. 
+When the playButton is pushed, the round banner is made visible. */
 
 const roundPlaysOut = () => {
 	playButton.innerText = 'Watch Out';
@@ -133,14 +133,14 @@ playButton.innerText = 'START';
 roundBanner.innerText = `Round:${round}`;
 roundBanner.style.visibility = 'hidden';
 
-// Player final round score and high score banners
+// Player final round score and high score banners, also hidden at first
 
 const finalScore = document.querySelector('.final-score');
 const highScore = document.querySelector('.high-score');
 finalScore.style.visibility = 'hidden';
 highScore.style.visibility = 'hidden';
 
-// Targeting the restart button, return to round 1
+// Targeting the restart button, return to round 0
 
 const restartTheGame = () => {
 	roundBanner.style.visibility = 'hidden';
@@ -211,7 +211,7 @@ const randomBannerSelector = (object) => {
 
 const startSound = document.querySelector('.start-sound');
 
-// Round vicory sound - Credit danlucaz on freesound.org
+// Victory sound - Credit danlucaz on freesound.org
 
 const victorySound = document.querySelector('.victory-sound');
 
