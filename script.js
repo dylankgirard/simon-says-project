@@ -83,7 +83,7 @@ gridButtons.addEventListener('click', pushValueToPlayerArray);
 When the playButton is pushed, the footer banner is made visible. */
 
 const roundPlaysOut = () => {
-	playButton.innerText = 'Watch Carefully';
+	playButton.innerText = 'Watch Out';
 	startSound.play();
 	playButton.disabled = true;
 	gridButtons.disabled = false;
@@ -105,7 +105,7 @@ const roundPlaysOut = () => {
 				}, 600);
 				currentComputerChoice.click();
 				if (i === compChoice.length - 1) {
-					playButton.innerText = 'YOUR TURN!';
+					playButton.innerText = 'YOUR TURN';
 					enableGridButtons();
 				}
 			}, i * 1000);

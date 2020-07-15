@@ -33,10 +33,6 @@ h2 {
 	grid-gap: 5px;
 }
 
-/* .main-button {
-	font-size: 35px;
-} */
-
 .round-banner {
 	color: white;
 	margin-top: 10px;
@@ -68,8 +64,10 @@ h2 {
 	transition: 0.3s;
 }
 
+/* Animation for the computer choices */
+
 .game-buttons-animation {
-	border: 4px solid white;
+	border: 7px solid white;
 	color: black;
 	transition: 0.3s;
 }
@@ -84,7 +82,7 @@ h2 {
 
 #r-button:active {
 	background-color: white;
-	transition: 0.1s;
+	transition: 0.3s;
 }
 
 #g-button {
@@ -95,7 +93,7 @@ h2 {
 
 #g-button:active {
 	background-color: white;
-	transition: 0.1s;
+	transition: 0.3s;
 }
 
 #b-button {
@@ -108,7 +106,7 @@ h2 {
 
 #b-button:active {
 	background-color: white;
-	transition: 0.1s;
+	transition: 0.3s;
 }
 
 #o-button {
@@ -121,7 +119,7 @@ h2 {
 
 #o-button:active {
 	background-color: white;
-	transition: 0.1s;
+	transition: 0.3s;
 }
 
 #c-button {
@@ -134,15 +132,13 @@ h2 {
 
 #c-button:active {
 	background-color: white;
-	transition: 0.1s;
+	transition: 0.3s;
 }
 
 .restart-button {
 	display: inline-block;
 	background-color: #7442d1;
-	margin: 0 auto;
-	padding-left: 10px;
-	padding-right: 10px;
+	/* margin: 0 auto; */
 	height: 60px;
 	width: 60px;
 	vertical-align: middle;
@@ -151,11 +147,34 @@ h2 {
 .play-button {
 	display: inline-block;
 	background-color: #7442d1;
-	margin: 0 auto;
+	/* margin: 0 auto; */
 	line-height: 26px;
 	height: 60px;
-	width: 230px;
+	width: 200px;
 	vertical-align: middle;
+}
+
+.info-button {
+	display: inline-block;
+	background-color: white;
+	color: black;
+	/* margin: 0 auto; */
+	height: 60px;
+	width: 60px;
+	vertical-align: middle;
+}
+
+.info-button:active {
+	background-color: black;
+	color: white;
+	transition: 0.3s;
+}
+
+@media (hover: hover) and (pointer: fine) {
+	.info-button:hover {
+		border: 6px solid #7442d1;
+		transition: 0.3s;
+	}
 }
 
 @media only screen and (max-width: 498px) {
