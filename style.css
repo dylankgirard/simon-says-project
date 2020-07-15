@@ -1,6 +1,6 @@
 body {
 	display: grid;
-	grid-template-rows: 19% 47% 13% 20%;
+	grid-template-rows: 16% 39% 11% 9% 5% 5%;
 	background-color: black;
 	font-family: 'Press Start 2P', 'Arial';
 	text-align: center;
@@ -12,15 +12,19 @@ h1 {
 	font-size: 50px;
 }
 
+h2 {
+	text-align: center;
+	margin-top: 3px;
+}
+
+h4 {
+	height: 10px;
+}
+
 article {
 	max-width: 400px;
 	margin: 0 auto;
 	text-align: center;
-}
-
-h2 {
-	text-align: center;
-	margin-top: 3px;
 }
 
 .game-grid {
@@ -35,6 +39,7 @@ h2 {
 
 .round-banner {
 	color: white;
+	height: 60px;
 	margin-top: 10px;
 	font-size: 45px;
 }
@@ -51,6 +56,7 @@ h2 {
 }
 
 /* Found this trick for none-hovering user interfaces @  https://medium.com/@mezoistvan/finally-a-css-only-solution-to-hover-on-touchscreens-c498af39c31c */
+
 @media (hover: hover) and (pointer: fine) {
 	.button:hover {
 		border: 5px solid white;
@@ -138,7 +144,6 @@ h2 {
 .restart-button {
 	display: inline-block;
 	background-color: #7442d1;
-	/* margin: 0 auto; */
 	height: 60px;
 	width: 60px;
 	vertical-align: middle;
@@ -171,13 +176,14 @@ h2 {
 @media (hover: hover) and (pointer: fine) {
 	.info-button:hover {
 		border: 6px solid #7442d1;
+		color: #7442d1;
 		transition: 0.3s;
 	}
 }
 
 @media only screen and (max-width: 498px) {
 	body {
-		grid-template-rows: 25% 41% 12% 30%;
+		grid-template-rows: 22% 35% 9% 9% 5% 5%;
 	}
 	h1 {
 		line-height: 60px;
@@ -211,6 +217,8 @@ h2 {
 
 #close {
 	color: white;
+	display: block;
+	padding-top: 12px;
 }
 
 audio {

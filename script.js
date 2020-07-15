@@ -7,6 +7,10 @@ let compChoice = [];
 
 let round = 0;
 
+// A variable to store the high score
+
+let highScoreValue = 0;
+
 // A randomizer for the computer to choose a value from 0 - 4, corresponding to the button colors
 
 const randomChoice = () => {
@@ -53,6 +57,8 @@ const compareChoiceArrays = () => {
 			playButton.innerText = '';
 			restartButton.style.color = 'red';
 			roundBanner.style.color = 'red';
+			finalScore.style.visibility = 'visible';
+			highScore.style.visibility = 'visible';
 			roundBanner.innerText = `${randomBannerSelector(failureBannerOutputs)}`;
 			return false;
 		}
@@ -88,6 +94,11 @@ const roundPlaysOut = () => {
 	playButton.disabled = true;
 	gridButtons.disabled = false;
 	round++;
+	if (round > highScoreValue) {
+		highScoreValue++;
+		highScore.innerText = `HIGH SCORE: ${highScoreValue}`;
+	}
+	finalScore.innerText = `FINAL SCORE: ${round}`;
 	computerChoiceGenerator();
 	roundBanner.innerText = `Round: ${round}`;
 	roundBanner.style.color = 'white';
@@ -122,10 +133,19 @@ playButton.innerText = 'START';
 roundBanner.innerText = `Round:${round}`;
 roundBanner.style.visibility = 'hidden';
 
+// Player final round score and high score banners
+
+const finalScore = document.querySelector('.final-score');
+const highScore = document.querySelector('.high-score');
+finalScore.style.visibility = 'hidden';
+highScore.style.visibility = 'hidden';
+
 // Targeting the restart button, return to round 1
 
 const restartTheGame = () => {
 	roundBanner.style.visibility = 'hidden';
+	finalScore.style.visibility = 'hidden';
+	highScore.style.visibility = 'hidden';
 	round = 0;
 	restartSound.play();
 	resetChoices();
