@@ -227,20 +227,27 @@ const gridSelectSound = document.querySelector('.grid-sound');
 
 const restartSound = document.querySelector('.restart-sound');
 
+// Info button sounds - Credit pumodi on freesound.org
+
+const infoSound1 = document.querySelector('.info-sound-1');
+const infoSound2 = document.querySelector('.info-sound-2');
+
 ////////// Targeting modal elements //////////
 
 const infoButton = document.querySelector('.info-button');
 const modal = document.querySelector('#modal');
 const closeButton = document.querySelector('#close');
 
-const infoTab = () => {
+const openInfoTab = () => {
 	modal.style.display = 'block';
+	infoSound1.play();
 };
 
-infoButton.addEventListener('click', infoTab);
+infoButton.addEventListener('click', openInfoTab);
 
 const closeInfo = () => {
 	modal.style.display = 'none';
+	infoSound2.play();
 };
 
 closeButton.addEventListener('click', closeInfo);
