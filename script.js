@@ -206,3 +206,21 @@ const gridSelectSound = document.querySelector('.grid-sound');
 // Restart sound - Credit ProjectsU012 on freesound.org
 
 const restartSound = document.querySelector('.restart-sound');
+
+////////// Targeting modal elements //////////
+
+const infoButton = document.querySelector('.info-button');
+const modal = document.querySelector('#modal');
+const closeButton = document.querySelector('#close');
+
+const infoTab = () => {
+	modal.style.display = 'block';
+};
+
+infoButton.addEventListener('click', infoTab);
+
+const closeInfo = () => {
+	modal.style.display = 'none';
+};
+
+closeButton.addEventListener('click', closeInfo);

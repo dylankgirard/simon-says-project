@@ -53,7 +53,7 @@ h2 {
 /* Found this trick for none-hovering user interfaces @  https://medium.com/@mezoistvan/finally-a-css-only-solution-to-hover-on-touchscreens-c498af39c31c */
 @media (hover: hover) and (pointer: fine) {
 	.button:hover {
-		border: 4px solid white;
+		border: 5px solid white;
 		transition: 0.25s;
 	}
 }
@@ -147,10 +147,9 @@ h2 {
 .play-button {
 	display: inline-block;
 	background-color: #7442d1;
-	/* margin: 0 auto; */
 	line-height: 26px;
 	height: 60px;
-	width: 200px;
+	width: 210px;
 	vertical-align: middle;
 }
 
@@ -158,7 +157,6 @@ h2 {
 	display: inline-block;
 	background-color: white;
 	color: black;
-	/* margin: 0 auto; */
 	height: 60px;
 	width: 60px;
 	vertical-align: middle;
@@ -187,6 +185,35 @@ h2 {
 	.round-banner {
 		line-height: 60px;
 	}
+}
+
+#modal {
+	display: none;
+	background-color: rgba(0, 0, 0, 0.4);
+	position: fixed;
+	top: 0;
+	left: 0;
+	line-height: 20px;
+	height: 100%;
+	width: 100%;
+	z-index: 1;
+	/*This puts our modal in front of the body (which has a default z-index setting of `0`*/
+	overflow: auto;
+	/*If overflow is clipped, a scroll-bar should be added to see the rest of the content*/
+}
+
+#modal-textbox {
+	background-color: #7442d1e7;
+	margin: 0 auto;
+	padding-top: 10px;
+	height: 100%;
+	width: 100%;
+	border-radius: 2px;
+}
+
+#close {
+	
+	color: white;
 }
 
 audio {
