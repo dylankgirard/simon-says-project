@@ -148,11 +148,11 @@ const restartTheGame = () => {
 	highScore.style.visibility = 'hidden';
 	round = 0;
 	restartSound.play();
-	resetChoices();
-	restartButton.style.color = 'white';
 	playButton.disabled = false;
+	resetChoices();
 	disableGridButtons();
 	roundBanner.innerText = `Round:${round}`;
+	restartButton.style.color = 'white';
 	roundBanner.style.color = 'white';
 	playButton.innerText = 'START';
 };
